@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Presidential Eligibility Form</title>
+    <style type="text/css">
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form-input {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid gray;
+      }
+
+      .form-label {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .form-submit {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .form-submit:hover {
+        background-color: lightblue;
+      }
+
+      .eligibility-result {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Presidential Eligibility Form</h2>
+      <form method="post">
+        <div>
+          <label class="form-label" for="age">Age:</label>
+          <input class="form-input" type="number" id="age" name="age" required>
+        </div>
+        <div>
+          <label class="form-label" for="nationality">Nationality:</label>
+          <input class="form-input" type="text" id="nationality" name="nationality" required>
+        </div>
+        <input class="form-submit" type="submit" value="Submit">
+      </form>
+      {% if eligibility %}
+        <div id="eligibility-result" class="eligibility-result">{{ eligibility }}</div>
+      {% endif %}
+    </div>
+  </body>
+</html>
+
+
+{% endblock %}
